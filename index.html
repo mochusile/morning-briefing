@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>도산 모닝 브리핑 — 2026.11.17 (화)</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --border: #334155;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.14);
+      --badge-mkt: #3b82f6;
+      --badge-sec: #ef4444;
+      --badge-mil: #10b981;
+      --badge-law: #a855f7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 16px 10px;
+    }
+    .header-inner {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .date-pill {
+      font-size: 0.8rem;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+    nav.tabs {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: none;
+    }
+    nav.tabs::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      flex: 0 0 auto;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--muted);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .tab-btn.active {
+      background: var(--accent);
+      color: #0f172a;
+      border-color: var(--accent);
+    }
+    main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 18px 16px 48px;
+    }
+    section.category {
+      margin-bottom: 28px;
+    }
+    section.category.hidden {
+      display: none;
+    }
+    .cat-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .cat-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 6px;
+      color: #fff;
+    }
+    .mkt { background: var(--badge-mkt); }
+    .sec { background: var(--badge-sec); }
+    .mil { background: var(--badge-mil); }
+    .law { background: var(--badge-law); }
+    .cat-title {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: #f8fafc;
+    }
+    .card p {
+      margin: 0 0 8px;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+    }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .links a {
+      font-size: 0.78rem;
+      color: var(--accent);
+      text-decoration: none;
+      background: var(--accent-soft);
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+    .links a:hover { text-decoration: underline; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 6px;
+      font-size: 0.84rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 7px 6px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    th { color: var(--muted); font-weight: 600; }
+    footer {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 16px 32px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="top-row">
+        <h1>📰 아침 언론보도 브리핑</h1>
+        <span class="date-pill">2026.11.17 (화) · 06:30 KST</span>
+      </div>
+      <nav class="tabs" aria-label="분야 필터">
+        <button class="tab-btn active" data-cat="all">전체 보기</button>
+        <button class="tab-btn" data-cat="mkt">📈 미국 증시·거시</button>
+        <button class="tab-btn" data-cat="sec">🛡️ 보안 기술</button>
+        <button class="tab-btn" data-cat="mil">🎖️ 국내외 군·안보</button>
+        <button class="tab-btn" data-cat="law">⚖️ 12·3 재판</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="category" data-cat="mkt">
+      <div class="cat-header">
+        <span class="cat-badge mkt">경제·증시</span>
+        <h2 class="cat-title">1. 미국 주식 · 거시경제 일정</h2>
+      </div>
+      <div class="card">
+        <h3>간밤(11/16) 뉴욕증시 — 기술·반도체 급락</h3>
+        <p>다우 51,608.17(-1.41%), S&amp;P500 7,416.59(-1.92%), 나스닥 24,509.76(-2.49%), 필라델피아 반도체지수 9,610.65(-5.28%). 엔비디아(-4.12%)·마이크론(-7.62%)·TSMC(-6.34%) 등 반도체가 약세를 주도했고 VIX는 23.89(+23.78%)로 급등했습니다. 젠슨 황 사임 여파와 12월 FOMC 25bp 인상 확률(~93%) 반영, 미 국채 10년물 5.117%, 브렌트유 $94~95.</p>
+        <div class="links">
+          <a href="https://www.seoul.co.kr/news/economy/securities/2026/11/17/20261117500006" target="_blank" rel="noopener">서울신문</a>
+          <a href="https://www.cnbc.com/2026/11/16/treasury-yields-bonds-inflation.html" target="_blank" rel="noopener">CNBC 국채</a>
+          <a href="https://www.cnbc.com/2026/11/16/oil-prices-brent-wti-latest.html" target="_blank" rel="noopener">CNBC 유가</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>오늘~이번 주 핵심 일정 (한국시간)</h3>
+        <table>
+          <thead>
+            <tr><th>시각</th><th>지표·이벤트</th><th>관전 포인트</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>오늘 22:30</strong></td><td>미 10월 소매·식품서비스 판매</td><td>9월 +0.8%, 예상 +0.6%(일부 +0.2%). 고물가 속 실질 소비 강도 확인</td></tr>
+            <tr><td>오늘 23:15</td><td>미 10월 산업생산</td><td>제조업 둔화 여부 (9월 +0.7%)</td></tr>
+            <tr><td><strong>11/18 06:20</strong></td><td>엔비디아 FY27 3분기 실적 (콜 07:00)</td><td>황 전 CEO 사임 후 콜레트 크레스 임시 CEO 체제 첫 가이던스</td></tr>
+            <tr><td>11/19 04:00</td><td>FOMC 10월 의사록</td><td>12월 인상 폭(25bp vs 50bp) 논의 단서</td></tr>
+            <tr><td>11/19 (미)</td><td>앤트로픽 IPO 상장 (나스닥 ANT)</td><td>공모가 $70~78, AI 밸류에이션 시험대</td></tr>
+          </tbody>
+        </table>
+        <div class="links">
+          <a href="https://www.census.gov/retail/release_schedule.html" target="_blank" rel="noopener">미 인구조사국</a>
+          <a href="https://investor.nvidia.com/events-and-presentations/events-and-presentations/default.aspx" target="_blank" rel="noopener">엔비디아 IR</a>
+          <a href="https://www.nasdaqtrader.com/TraderNews.aspx?id=DTN2026-28" target="_blank" rel="noopener">Nasdaq ANT</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="category" data-cat="sec">
+      <div class="cat-header">
+        <span class="cat-badge sec">보안 기술</span>
+        <h2 class="cat-title">2. 글로벌 보안 기술 뉴스 &amp; 핫이슈</h2>
+      </div>
+      <div class="card">
+        <h3>N-able N-central 제로데이 '4EverAble2Shell' (CVE-2026-90436, CVSS 9.8)</h3>
+        <p>번들 Apache Axis의 SOAP fault 처리 중 unsafe class instantiation 결함으로 JLine 클래스를 악용해 <code>nable</code> 권한 명령 실행 후 root를 탈취합니다. 실제 공격에서 XMRig 채굴기가 설치됐고 감염 21대 중 19대가 이미 HF2 패치 상태여서 2026.4 HF3 적용과 침해 점검이 권고됩니다.</p>
+        <div class="links">
+          <a href="https://thehackernews.com/2026/11/hackers-exploit-n-central-flaws-to.html" target="_blank" rel="noopener">The Hacker News</a>
+          <a href="https://huntback.io/blog/ncentral-4everable2shell-miners-on-live-servers" target="_blank" rel="noopener">Huntback</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>MS 11월 패치 · Chrome 제로데이 (KEV 기한 11/24)</h3>
+        <p>Outlook NTLMv2 해시 유출 제로데이(CVE-2026-124194), Windows Search 제로클릭 RCE(CVE-2026-116928, 9.8), Windows LDAP OOB write(CVE-2026-119958, 9.8)가 포함됐습니다. Chrome XML use-after-free 제로데이(CVE-2026-125350, 8.8)도 실제 악용 중이라 157.0.8103.50 이상 업데이트가 필요합니다.</p>
+        <div class="links">
+          <a href="https://www.skshieldus.com/security-insights/trends/daily-outlook-zero-day-ntlm-update-check" target="_blank" rel="noopener">SK쉴더스</a>
+          <a href="https://threatfrontier.com/articles/chrome-zero-day-cve-2026-125350-xml-use-after-free" target="_blank" rel="noopener">ThreatFrontier</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Check Point Gaia 권한상승(CVE-2026-123039) &amp; Danfoss ICS RCE</h3>
+        <p>Check Point는 Mobile Access PHP2Shell 선침투 후 Dynamic CLI 소켓 권한 설정 오류(CWE-732/862)로 root를 탈취한 사례(20여 대)가 확인됐고, Danfoss AK-SM 800A 냉장 컨트롤러에선 인증 전 RCE 6건과 시큐어부트 부재가 공개됐습니다.</p>
+        <div class="links">
+          <a href="https://techtarget.itmedia.co.jp/tt/article/2611/16/2000003216/" target="_blank" rel="noopener">TechTarget Japan</a>
+          <a href="https://www.midnightblue.nl/blog/multiple-rce-danfoss-aksm800a" target="_blank" rel="noopener">Midnight Blue</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="category" data-cat="mil">
+      <div class="cat-header">
+        <span class="cat-badge mil">국방·안보</span>
+        <h2 class="cat-title">3. 국내외 군·안보</h2>
+      </div>
+      <div class="card">
+        <h3>전군 스마트 웨어러블 보안검색 지침 시행 (11/1~)</h3>
+        <p>국방부가 스마트 안경 등 웨어러블 기기 반입 차단을 위해 X-ray 및 육안·촉수 검색 지침을 전군에 하달해 11월 1일부터 시행 중이며, 비인가 기기 반입 징계기준도 훈령 개정으로 강화할 예정입니다.</p>
+        <div class="links">
+          <a href="https://www.yna.co.kr/view/AKR20261116149000504" target="_blank" rel="noopener">연합뉴스</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>2027 국방예산 국방위 의결 · 국군사관학교 수정안 당정협의</h3>
+        <p>국방위에서 국방부 +6,184억·방사청 +8,004억(KF-21 후속양산 3,000억·첨단무기 R&amp;D 2,000억 등)이 의결됐습니다. 사관학교 통합은 1조5,000억 규모 '네트워크형 통합' 수정안으로 내일(11/18 07:30) 당정협의를 엽니다.</p>
+        <div class="links">
+          <a href="https://www.yna.co.kr/view/AKR20261116162600001" target="_blank" rel="noopener">연합뉴스(예산)</a>
+          <a href="https://www.newspim.com/news/view/20261116001340" target="_blank" rel="noopener">뉴스핌(사관학교)</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>북한 미사일공업절·APEC · 미·중·러 정상회담 · 2027 NDAA</h3>
+        <p>11/18 북한 '미사일공업절'+선전 APEC 개막일 도발 가능성과 11/19 미·중·러 3국 정상회담의 '한국 패싱' 우려가 부각됐습니다. 미 의회는 2027 NDAA 최종 조율에 착수했고, 중동(미 항모 3척 집결)·우크라이나 최대 드론 공방도 이어졌습니다.</p>
+        <div class="links">
+          <a href="https://www.ajunews.com/view/20261116144340428" target="_blank" rel="noopener">아주경제</a>
+          <a href="https://www.voakorea.com/a/ndaa-korea-provisions-111626/8224284.html" target="_blank" rel="noopener">VOA(NDAA)</a>
+          <a href="https://www.reuters.com/3fec1b0a85a0/world/europe/ukraine-launches-biggest-drone-attack-russia-since-war-began-defence-ministry-2026-11-16/" target="_blank" rel="noopener">Reuters</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="category" data-cat="law">
+      <div class="cat-header">
+        <span class="cat-badge law">12·3 재판</span>
+        <h2 class="cat-title">4. 12·3 비상계엄 관련 재판 소식</h2>
+      </div>
+      <div class="card">
+        <h3>오늘(11/17) 주요 공판</h3>
+        <p>10:00 김현태 전 707특임단장 외 6명 항소심 1차 공판(1심 징역 12년, 변호인 측 국회 현장검증 요청 쟁점)·김명수 전 합참의장 13차 공판, 14:00 홍창식 국방부 법무관리관 2차 공판·김종욱 전 해경청장 2차 공판이 열립니다.</p>
+        <div class="links">
+          <a href="https://www.fnnews.com/news/202611170602422829" target="_blank" rel="noopener">파이낸셜뉴스</a>
+          <a href="https://www.ytn.co.kr/_ln/0103_202611170055021696" target="_blank" rel="noopener">YTN</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>이번 주 핵심 선고 · 최근 결심</h3>
+        <p>내일(11/18 14:00) 추경호 대구시장 1심 선고(구형 20년), 모레(11/19) 한덕수 전 총리 대법원 전원합의체 선고(12·3 계엄 내란죄 성립 여부 첫 대법 판단)가 예정돼 있습니다. 어제(11/16) 평양 무인기 항소심 결심에선 윤 전 대통령·김용현에게 각 징역 30년이 구형됐습니다.</p>
+        <div class="links">
+          <a href="https://www.yna.co.kr/view/AKR20261113175000004" target="_blank" rel="noopener">연합뉴스(추경호)</a>
+          <a href="https://www.yna.co.kr/view/AKR20261116086151004" target="_blank" rel="noopener">연합뉴스(한덕수)</a>
+          <a href="https://sinobridgetimes.com/art_1017_kr-yoon-pyongyang-drone-appeal-30-years-sought.html" target="_blank" rel="noopener">무인기 결심</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    공개 언론보도만 요약·정리한 페이지입니다 (개인 일정·메일·계정 정보 미포함).
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll('.tab-btn');
+    const sections = document.querySelectorAll('section.category');
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        buttons.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        const target = btn.dataset.cat;
+        sections.forEach((sec) => {
+          sec.classList.toggle('hidden', target !== 'all' && sec.dataset.cat !== target);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
